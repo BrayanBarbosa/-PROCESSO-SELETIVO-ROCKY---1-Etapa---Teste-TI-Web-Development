@@ -1,14 +1,14 @@
-1#Processo-Seletivo-Rocky
+#Processo-Seletivo-Rocky
 
-3#Tarefa da primeira fase do processo seletivo da Raccon Marketing Digital
+###Tarefa da primeira fase do processo seletivo da Raccon Marketing Digital
 
-3#O problema 
+###O problema 
 
 Você é responsável por um software de gestão de estoque de produtos. Ao fazer uma alteração no sistema, uma rotina que não foi devidamente testada acabou quebrando todo o banco de dados. Por sorte, não houve perda completa dos dados, mas eles não estão mais no formato esperado pelo sistema. Sua missão nesse projeto é recuperar os dados e deixá-los no formato adequado novamente. Além disso, você precisará criar também alguns métodos para validação das correções. 
 O banco de dados utilizado é um banco de dados NoSQL, orientado a documentos. Não se assuste caso você não conheça esses nomes. Não iremos mexer diretamente com banco de dados, mas somente com o documento, em formato JSON, onde estão armazenados os dados de produto. 
 
 
-3#Problemas detectados no banco de dados corrompido 
+###Problemas detectados no banco de dados corrompido 
 1.	Nomes
 Todos os nomes de produto tiveram alguns caracteres modificados, houve substituição de todos os "a" por "æ", "c" por "¢", "o" por "ø", "b" por "ß". É preciso reverter essas substituições para recuperar os nomes originais.
 
@@ -20,7 +20,7 @@ Original:
 Corrompido:
 "name": "iPhøne XS Mæx Prætæ, cøm Telæ de 6,5, 4G, 64 GB e Câmeræ de 12 MP" 
 
-3#2.Preços
+###2.Preços
 Os preços dos produtos devem ser sempre do tipo number, mas alguns deles estão no tipo string. É necessário transformar as strings novamente em number.
 Exemplo: 
 Original:
@@ -28,7 +28,7 @@ Original:
 Corrompido: 
 "price": "1250.00" 
 
-3#3.Quantidades
+##3.Quantidades
 Nos produtos onde a quantidade em estoque era zero, o atributo "quantity" sumiu. Ele precisa existir em todos os produtos, 
 mesmo naqueles em que o estoque é 0.
 Exemplo:
@@ -43,10 +43,10 @@ Corrompido:
 "name": "Conjunto de Panelas Antiaderentes com 05 Peças Paris", 
 "price": 192.84 
 
-1#Questões: 
+#Questões: 
 Para esse projeto, você utilizará o arquivo broken-database.json (disponível aqui) e irá fazer uma série de transformações até que ele volte ao formato original. Para isso será necessário desenvolver algumas funções e depois verificar se realmente foi recuperado. Você deverá utilizar JavaScript para resolver esse problema, caso não conheça nenhuma dessas linguagens, é uma ótima oportunidade para aprender! :) 
 
-2#1.Recuperação dos dados originais do banco de dados 
+##1.Recuperação dos dados originais do banco de dados 
 Você deverá criar uma função para ler o arquivo broken-database.json e criar três funções para percorrer o banco de dados corrompido e corrigir os três erros descritos anteriormente, além de uma função para exportar um arquivo .json com a saída.
 Portanto serão 5 funções: 
 a)	Ler o arquivo Json;
@@ -56,7 +56,7 @@ d)	Corrigir quantidades;
 e)	Exportar um arquivo JSON com o banco corrigido;
 Implementar e entregar as quatro funções em um mesmo arquivo ‘resolucao.js’ para correção. Enviar também para correção um arquivo no formato JSON com o banco de dados corrigido, ou seja, após passar pelas três funções de correção. 
 
-2#2. Validação do banco de dados corrigido 
+##2. Validação do banco de dados corrigido 
 Você deverá implementar funções para validar a sua recuperação do banco de dados. Todas essas funções deverão ter como input o seu banco de dados corrigido na questão 1. As funções de validação são: 
 a) Uma função que imprime a lista com todos os nomes dos produtos, ordenados primeiro por categoria em ordem alfabética e ordenados por id em ordem crescente. Obs: é apenas uma saída, ordenada pelos dois fatores citados acima.
 b) Uma função que calcula qual é o valor total do estoque por categoria, ou seja, a soma do valor de todos os produtos em estoque de cada categoria, considerando a quantidade de cada produto. 
@@ -80,7 +80,7 @@ Obs¹: A documentação é muito importante. Atente-se a isto.
 Obs²: NÃO é escopo do teste desenvolver qualquer página .html.
 
 
-Saída (ordenação por categoria):
+###Saída (ordenação por categoria):
 
 Impressao dos nomes por categoria:
 1 Mouse Gamer Predator cestus 510 Fox Preto
@@ -93,7 +93,8 @@ Impressao dos nomes por categoria:
 8 Monitor 29 LG FHD Ultrawide com 1000:1 de contraste
 9 Smart TV 4K Sony LED 65” 4K X-Reality Pro, UpScalling, Motionflow XR 240 e Wi-F
 10 Conjunto de Panelas antiaderentes com 05 Peças Paris
-Saída (Ordenação por ID):
+
+###Saída (Ordenação por ID):
 
 Impressao dos nomes por ID:
 1 Refrigerador bottom Freezer Electrolux de 02 Portas Frost Free com 598 Litros
@@ -109,7 +110,7 @@ Impressao dos nomes por ID:
 5. Imprimir as categorias e valores em estoque de cada uma.
 Imprime uma lista com as categorias disponíveis e os valores em estoque de cada categoria. Para esta tarefa foi criada a função CategoryCust. Nesta se percorre a lista de dicionários, e para cada nova categoria detectada, a categoria, e o valor é colocado em uma nova lista. Ainda, quando a categoria detectada já existe no vetor, é apenas somado o valor de estoque existente, com a multiplicação entre quantidade do produto e seu preço. No final é impresso a lista gerada com categoria e valor, e no fim, é impresso "Total", com o valor total em estoque. Saída:
 
-Valor dos produtos por categoria em estoque:
+###Valor dos produtos por categoria em estoque:
 Panelas = 4049.64
 Eletrodomésticos = 315752.67
 Eletrônicos = 203989.20
